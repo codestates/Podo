@@ -1,6 +1,9 @@
 const dotenv = require("dotenv");
 require("dotenv").config();
+<<<<<<< HEAD
 // delete useless codes
+=======
+>>>>>>> main
 
 module.exports = {
   port: {
