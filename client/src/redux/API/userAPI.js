@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { showLoginModal } from "../reducers/modalSlice";
+import { showLoginModal, showWithdrawModal } from "../reducers/modalSlice";
 import { isError, isNotError } from "../reducers/errorSlice";
 import { isLoading, isNotLoading } from "../reducers/loadingSlice";
 import { getUsersParty } from "./partyAPI";
@@ -14,7 +14,7 @@ const api = axios.create({
 export const getUser = createAsyncThunk(
   "user/getUser",
   async (_, { dispatch, rejectWithValue }) => {
-    await Promise.all([dispatch(dispatch(isLoading()), isNotError())]);
+    await Promise.all([dispatch(isLoading()), dispatch(isNotError())]);
     try {
       const user = await api.get(`/`);
       await Promise.all([
@@ -48,17 +48,6 @@ export const updateProfileImage = async (id) => {
     });
 };
 
-// export const deleteUser = async () => {
-//   api
-//     .delete(`/`, { withCredentials: true })
-//     .then((res) => {
-//       console.log("RESPONSE");
-//     })
-//     .catch((err) => {
-//       console.log("ERROR");
-//     });
-// };
-
 export const deleteUser = createAsyncThunk(
   "user/deleteUser",
   async (_, { dispatch, rejectWithValue }) => {
@@ -66,6 +55,28 @@ export const deleteUser = createAsyncThunk(
     try {
       await api.delete(`/`);
       await Promise.all([dispatch(isNotLoading()), dispatch(isNotError())]);
+    } catch (err) {
+      await Promise.all([
+        dispatch(isNotLoading()),
+        dispatch(isError(err.toJSON())),
+      ]);
+      return rejectWithValue(err);
+    }
+  }
+);
+
+export const updateMoney = createAsyncThunk(
+  "user/updateMoney",
+  async ({ withdraw }, { dispatch, rejectWithValue }) => {
+    await Promise.all([dispatch(isNotError())]);
+    try {
+      const user = await api.patch(`/money/?withdraw=${withdraw}`);
+      await Promise.all([
+        dispatch(isNotError()),
+        dispatch(showWithdrawModal(false)),
+        dispatch(getUser()),
+      ]);
+      return user.data.data;
     } catch (err) {
       await Promise.all([
         dispatch(isNotLoading()),

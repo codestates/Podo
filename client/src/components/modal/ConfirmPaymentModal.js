@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { getUsersPaymentInfo } from "../../redux/API/paymentAPI";
 import {
   showConfirmPaymentModal,
   showCardModal,
@@ -24,6 +25,7 @@ function ConfirmPaymentModal(props) {
   const settlementModalState = useSelector(
     (state) => state.modal.settlementModal
   );
+  const [usingPodo, setUsingPodo] = useState(true);
   const party = props.party;
 
   const onClickJoin = () => {
@@ -37,6 +39,7 @@ function ConfirmPaymentModal(props) {
       dispatch(
         joinParty({
           partyId: party.id,
+          usingPodo: usingPodo ? 1 : 0,
         })
       );
       if (errorState) {
@@ -60,7 +63,9 @@ function ConfirmPaymentModal(props) {
       }
     }
   };
-  useEffect(() => {}, [errorState]);
+  useEffect(() => {
+    dispatch(getUsersPaymentInfo());
+  }, []);
 
   return (
     <>
@@ -119,9 +124,17 @@ function ConfirmPaymentModal(props) {
             </div>
 
             <div className="jpmpay">
-              - 결제 카드는 파티장의 귀책 사유 발생 시 위약금을 부과하기 위해
-              필요해요. 약속대로 파티가 잘 진행 된다면 위약금이 발생할 일은 절대
-              없으니 안심하세요.
+              <input
+                type="checkbox"
+                name="xxx"
+                checked={usingPodo}
+                onChange={(e) => setUsingPodo(e.target.checked)}
+              />
+              {" Podo머니로 우선 결제하기"}
+              <br />
+              <br /> - 결제 카드는 파티 탈퇴 귀책 사유 발생 시 위약금을 부과하기
+              위해 필요해요. 약속대로 파티가 잘 진행 된다면 위약금이 발생할 일은
+              절대 없으니 안심하세요.
             </div>
             <div className="joinpartysign">
               <button
