@@ -13,6 +13,7 @@ const api = axios.create({
 export const createParty = createAsyncThunk(
   "party/createParty",
   async ({ createPartyState }, { dispatch, rejectWithValue }) => {
+    dispatch(isNotError());
     await Promise.all([
       dispatch(isLoading()),
       dispatch(isNotError()),
@@ -32,6 +33,7 @@ export const createParty = createAsyncThunk(
 export const getAllParties = createAsyncThunk(
   "party/getAllParties",
   async ({ id }, { dispatch, rejectWithValue }) => {
+    dispatch(isNotError());
     dispatch(isLoading());
     try {
       const parties = await api.get(`/all/${id}`);
@@ -50,6 +52,7 @@ export const getAllParties = createAsyncThunk(
 export const getFilteredParties = createAsyncThunk(
   "party/getFilteredParties",
   async ({ id, date, period, members_num }, { dispatch, rejectWithValue }) => {
+    dispatch(isNotError());
     dispatch(isLoading());
     try {
       let parties = await (
@@ -94,6 +97,7 @@ export const getFilterParties = (parties, period, members_num) => {
 export const joinParty = createAsyncThunk(
   "party/joinParty",
   async ({ partyId, usingPodo }, { dispatch, rejectWithValue }) => {
+    dispatch(isNotError());
     await Promise.all([
       dispatch(isNotError()),
       dispatch(updateUsingPodo({ usingPodo: usingPodo })),
@@ -111,6 +115,7 @@ export const joinParty = createAsyncThunk(
 export const getUsersParty = createAsyncThunk(
   "party/getUsersParty",
   async (_, { dispatch, rejectWithValue }) => {
+    dispatch(isNotError());
     dispatch(isNotLoading());
     try {
       const parties = await api.get(`/user`);
