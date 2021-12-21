@@ -8,9 +8,7 @@ import { dateToStringDash } from "../../utils/dateFunction";
 import DatePicker, { registerLocale } from "react-datepicker";
 import getYear from "date-fns/getYear";
 import getMonth from "date-fns/getMonth";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
 function Calendar(props) {
   const dispatch = useDispatch();
@@ -71,11 +69,7 @@ function Calendar(props) {
               }}
             >
               <div className="left-icon">
-                <FontAwesomeIcon
-                  icon={faChevronLeft}
-                  style={{ color: "#a5a9f8" }}
-                  size="1x"
-                />
+                <BsChevronCompactLeft style={{ color: "#a5a9f8" }} />
               </div>
             </div>
             <div className="month-day">
@@ -94,11 +88,7 @@ function Calendar(props) {
               }}
             >
               <div className="right-icon">
-                <FontAwesomeIcon
-                  icon={faChevronRight}
-                  style={{ color: "#a5a9f8" }}
-                  size="1x"
-                />
+                <BsChevronCompactRight style={{ color: "#a5a9f8" }} />
               </div>
             </div>
           </div>

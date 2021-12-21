@@ -18,7 +18,15 @@ import errorReducer from "./errorSlice";
 const persistConfig = {
   key: "root",
   storage,
-  blacklist: ["payment", "modal", "loading", "error", "party"],
+  blacklist: [
+    "payment",
+    "modal",
+    "loading",
+    "error",
+    "party",
+    "user",
+    "loginURI",
+  ],
 };
 
 export const persistedReducer = persistReducer(

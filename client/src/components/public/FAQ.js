@@ -1,11 +1,7 @@
 import React, { useState } from "react";
 import "../../style/App.scss";
-import down_icon from "../../image/down_icon.png";
-import up_icon from "../../image/up_icon.png";
-import ReactDatePicker from "react-datepicker";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { FaChevronDown } from "react-icons/fa";
+import { FaChevronUp } from "react-icons/fa";
 
 function FAQ(props) {
   const [height1, setHeight1] = useState(80);
@@ -78,14 +74,13 @@ function FAQ(props) {
               </div>
               {!changeImg1 ? (
                 <div className="faqmhicon">
-                  <FontAwesomeIcon icon={faAngleDown} size="2x" />
+                  <FaChevronDown />
                 </div>
               ) : (
                 <div className="faqmhicon">
-                  <FontAwesomeIcon icon={faAngleUp} size="2x" />
+                  <FaChevronUp />
                 </div>
               )}
-              {/* <img src={down_icon} alt="down"></img> */}
             </div>
 
             <div className="faqexp">
@@ -118,11 +113,11 @@ function FAQ(props) {
               </div>
               {!changeImg2 ? (
                 <div className="faqmhicon">
-                  <FontAwesomeIcon icon={faAngleDown} size="2x" />
+                  <FaChevronDown />
                 </div>
               ) : (
                 <div className="faqmhicon">
-                  <FontAwesomeIcon icon={faAngleUp} size="2x" />
+                  <FaChevronUp />
                 </div>
               )}
             </div>
@@ -157,11 +152,11 @@ function FAQ(props) {
               <div className="faqmh">'포도 머니'가 무엇언가요?</div>
               {!changeImg3 ? (
                 <div className="faqmhicon">
-                  <FontAwesomeIcon icon={faAngleDown} size="2x" />
+                  <FaChevronDown />
                 </div>
               ) : (
                 <div className="faqmhicon">
-                  <FontAwesomeIcon icon={faAngleUp} size="2x" />
+                  <FaChevronUp />
                 </div>
               )}
             </div>
@@ -186,11 +181,11 @@ function FAQ(props) {
               <div className="faqmh">'포도 정산일'이 무엇인가요?</div>
               {!changeImg4 ? (
                 <div className="faqmhicon">
-                  <FontAwesomeIcon icon={faAngleDown} size="2x" />
+                  <FaChevronDown />
                 </div>
               ) : (
                 <div className="faqmhicon">
-                  <FontAwesomeIcon icon={faAngleUp} size="2x" />
+                  <FaChevronUp />
                 </div>
               )}
             </div>

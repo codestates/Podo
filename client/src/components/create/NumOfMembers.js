@@ -2,10 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setMembersNum } from "../../redux/reducers/partySlice";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMinus } from "@fortawesome/free-solid-svg-icons";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { AiOutlineLeft } from "react-icons/ai";
+import { AiOutlineMinus } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
 
 function NumOfMembers(props) {
   const dispatch = useDispatch();
@@ -37,7 +36,7 @@ function NumOfMembers(props) {
         <div className="guidemiddle">
           <div className="memberbox">
             <div className="updown" onClick={onClickMinus}>
-              <FontAwesomeIcon icon={faMinus} size="2x" />
+              <AiOutlineMinus size="45px" />
             </div>
 
             <div className="membermiddle">
@@ -45,7 +44,7 @@ function NumOfMembers(props) {
               <div className="payinfo">3명 모집 시 매달 최대 11,425원 적립</div>
             </div>
             <div className="updown" onClick={onClickPlus}>
-              <FontAwesomeIcon icon={faPlus} size="2x" />
+              <AiOutlinePlus size="45px" />
             </div>
           </div>
           <div className="infomember">

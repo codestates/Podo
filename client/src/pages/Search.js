@@ -16,10 +16,9 @@ import JoinPartyModal from "../components/modal/JoinPartyModal";
 import ConfirmPaymentModal from "../components/modal/ConfirmPaymentModal";
 import "../style/Search.scss";
 import "../style/datepicker.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
-import { faPlusSquare } from "@fortawesome/free-solid-svg-icons";
 import { IoIosArrowDropdown } from "react-icons/io";
+import { FaPaperPlane } from "react-icons/fa";
+import { FaPlusSquare } from "react-icons/fa";
 import netflix from "../image/NetflixName.png";
 import watcha from "../image/WatchaName.png";
 import wavve from "../image/WavveName.svg";
@@ -144,11 +143,7 @@ function Search(props) {
                   <div className="guideseeup">
                     <div className="gsul">가이드보기</div>
                     <div className="gsur">
-                      <FontAwesomeIcon
-                        icon={faPaperPlane}
-                        style={{ color: "#a5a9f8" }}
-                        size="1x"
-                      />
+                      <FaPaperPlane style={{ color: "#a5a9f8" }} />
                     </div>
                   </div>
                   <div className="guideseedown">
@@ -165,11 +160,7 @@ function Search(props) {
                   <div className="guideseeup">
                     <div className="gsul">파티 만들기</div>
                     <div className="gsur">
-                      <FontAwesomeIcon
-                        icon={faPlusSquare}
-                        style={{ color: "#a5a9f8" }}
-                        size="1x"
-                      />
+                      <FaPlusSquare style={{ color: "#a5a9f8" }} />
                     </div>
                   </div>
                   <div className="guideseedown">

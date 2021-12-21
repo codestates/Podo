@@ -143,6 +143,19 @@ export const ottImageClass = {
   nintendo: "panel__img pos-10",
 };
 
+export const ottImageClassUp = {
+  netflix: "panel__imgup pos-1",
+  watcha: "panel__imgup pos-2",
+  wavve: "panel__imgup pos-3",
+  tving: "panel__imgup pos-4",
+  disney: "panel__imgup pos-5",
+  prime: "panel__imgup pos-6",
+  laftel: "panel__imgup pos-7",
+  apple: "panel__imgup pos-8",
+  office: "panel__imgup pos-9",
+  nintendo: "panel__imgup pos-10",
+};
+
 export const ottList = {
   netflix: 1,
   watcha: 2,

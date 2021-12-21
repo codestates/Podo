@@ -8,7 +8,6 @@ import SelectProfileImage from "../../components/modal/SelectProfileImage";
 import PartyCard from "./PartyCard";
 import "../../style/MyPage.scss";
 import { IoSettingsOutline } from "react-icons/io5";
-import { AiOutlineSetting } from "react-icons/ai";
 
 import PodoMoney from "../../image/PodoMoney.svg";
 import profile0 from "../../image/profile0.svg";

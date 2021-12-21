@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { AiOutlineLeft } from "react-icons/ai";
+import { FaChevronDown } from "react-icons/fa";
 
 function Period(props) {
   const dispatch = useDispatch();
@@ -78,7 +79,7 @@ function Period(props) {
             <div className="periodright">
               {startDateToString === "" ? "선택" : startDateToString}
               <div className="arrow">
-                <FontAwesomeIcon icon={faChevronDown} size="1x" />
+                <FaChevronDown />
               </div>
             </div>
           </div>
@@ -107,7 +108,7 @@ function Period(props) {
             <div className="periodright">
               {isSetperiod === "" ? "선택" : `${period}개월`}
               <div className="arrow">
-                <FontAwesomeIcon icon={faChevronDown} size="1x" />
+                <FaChevronDown />
               </div>
             </div>
           </div>
