@@ -2,8 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { dateToStringPoint, refinePrice } from "../../utils/dateFunction";
 import { showJoinPartyModal } from "../../redux/reducers/modalSlice";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWonSign } from "@fortawesome/free-solid-svg-icons";
+import { BiWon } from "react-icons/bi";
 
 function Party(props) {
   const dispatch = useDispatch();
@@ -31,11 +30,7 @@ function Party(props) {
           </div>
           <div className="ottfee">
             <div className="won">
-              <FontAwesomeIcon
-                icon={faWonSign}
-                style={{ color: "#c6c6c6" }}
-                size="1x"
-              />
+              <BiWon style={{ color: "#c6c6c6" }} />
             </div>
             월 {priceOfParty}원
           </div>

@@ -3,10 +3,9 @@ import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { getOttKoreanNameById } from "../../utils/dateFunction";
 import Swal from "sweetalert2";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle as checkedIcon } from "@fortawesome/free-solid-svg-icons";
-import { faCheckCircle as uncheckedIcon } from "@fortawesome/free-regular-svg-icons";
 import { AiOutlineLeft } from "react-icons/ai";
+import { AiFillCheckCircle } from "react-icons/ai";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 
 function LeaderGuide(props) {
   const navigate = useNavigate();
@@ -61,17 +60,9 @@ function LeaderGuide(props) {
           </div>
           <div className="checkguide">
             {checked ? (
-              <FontAwesomeIcon
-                icon={checkedIcon}
-                size="1x"
-                onClick={onclickCkeck}
-              />
+              <AiFillCheckCircle onClick={onclickCkeck} />
             ) : (
-              <FontAwesomeIcon
-                icon={uncheckedIcon}
-                size="1x"
-                onClick={onclickCkeck}
-              />
+              <AiOutlineCheckCircle onClick={onclickCkeck} />
             )}
 
             <span onClick={onclickCkeck}>

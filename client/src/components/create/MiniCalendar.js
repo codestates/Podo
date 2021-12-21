@@ -5,8 +5,6 @@ import { dateToString, dateToStringDash } from "../../utils/dateFunction";
 import DatePicker from "react-datepicker";
 import getYear from "date-fns/getYear";
 import getMonth from "date-fns/getMonth";
-import arrow_left from "../../image/arrow_left.png";
-import arrow_right from "../../image/arrow_right.png";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 
 function MiniCalendar(props) {

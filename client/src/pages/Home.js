@@ -4,7 +4,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Header from "../components/public/Header";
 import FAQ from "../components/public/FAQ";
 import "../style/Home.scss";
-import { ottImage, ottImageClass } from "../utils/dateFunction";
+import {
+  ottImage,
+  ottImageClass,
+  ottImageClassUp,
+} from "../utils/dateFunction";
 import ScrollTop from "../components/public/ScrollTop";
 import logo from "../image/Podo_logo.svg";
 import landingimg1 from "../image/landingimg1.png";
@@ -20,6 +24,20 @@ const Home = (props) => {
       result.push(
         <img
           className={ottImageClass[ottName]}
+          src={ottImage[ottName]}
+          alt="Some image"
+        />
+      );
+    });
+    return result;
+  };
+
+  const ottElementsUp = () => {
+    const result = [];
+    Object.keys(ottImage, ottImageClassUp).map((ottName) => {
+      result.push(
+        <img
+          className={ottImageClassUp[ottName]}
           src={ottImage[ottName]}
           alt="Some image"
         />
@@ -60,6 +78,13 @@ const Home = (props) => {
       // y: "200%",
       x: "200%",
     });
+    gsap.to(".panel__imgup", {
+      scrollTrigger: ".panel__imgup",
+      duration: 4,
+      opacity: 1,
+      // y: "200%",
+      x: "200%",
+    });
   }, []);
 
   return (
@@ -75,7 +100,7 @@ const Home = (props) => {
           </span>
         </div>
       </div>
-
+      <div class="panelup">{ottElementsUp()}</div>
       <div className="homemiddle">
         <div className="landingpage">
           <div className="landingexp">
@@ -191,9 +216,6 @@ const Home = (props) => {
               </a>
             </div>
           </div>
-          {/* <div className="footerdown">
-            <div>Copyright</div>
-          </div> */}
         </div>
       </div>
     </>

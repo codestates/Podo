@@ -49,7 +49,7 @@ module.exports = (sequelize, DataTypes) => {
       use_podo: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
-        allowNull: false,
+        allowNull: true,
       },
     },
     {
