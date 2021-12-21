@@ -56,10 +56,10 @@ function LoginModal(props) {
                   <img className="sociallogo" src={kakao} alt="kakao" />
                   <div>카카오로 시작하기</div>
                 </button>
-                <button className="socialloginBtn" onClick={onClickKakao}>
+                {/* <button className="socialloginBtn" onClick={onClickKakao}>
                   <img className="guestlogo" src={guest} alt="guest" />
                   <div>게스트로 둘러보기</div>
-                </button>
+                </button> */}
               </div>
 
               <div className="forgotlogin">

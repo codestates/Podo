@@ -24,6 +24,7 @@ export const getUsersPaymentInfo = createAsyncThunk(
 export const updateSettlement = createAsyncThunk(
   "payment/updateSettlement",
   async ({ state }, { dispatch, rejectWithValue }) => {
+    dispatch(isNotError());
     try {
       console.log("ff", state);
       const res = await api.post(`/settlement`, state);
@@ -42,6 +43,7 @@ export const updateSettlement = createAsyncThunk(
 export const updateCard = createAsyncThunk(
   "payment/updateCard",
   async ({ state }, { dispatch, rejectWithValue }) => {
+    dispatch(isNotError());
     try {
       await api.post(`/credit`, state);
       await Promise.all([
@@ -59,6 +61,7 @@ export const updateCard = createAsyncThunk(
 export const updateAccount = createAsyncThunk(
   "payment/updateAccount",
   async ({ state }, { dispatch, rejectWithValue }) => {
+    dispatch(isNotError());
     try {
       await api.post(`/account`, state);
       await Promise.all([
@@ -77,6 +80,7 @@ export const updateAccount = createAsyncThunk(
 export const updateUsingPodo = createAsyncThunk(
   "payment/updateUsingPodo",
   async ({ usingPodo }, { dispatch, rejectWithValue }) => {
+    dispatch(isNotError());
     try {
       await api.post(`/using-podo/${usingPodo}`);
       await Promise.all([dispatch(isNotError())]);
