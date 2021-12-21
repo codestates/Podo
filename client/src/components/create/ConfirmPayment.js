@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -24,6 +24,7 @@ function ConfirmPayment(props) {
   const createPartyState = useSelector((state) => state.party.ceateParty);
   const userState = useSelector((state) => state.user);
   const errorState = useSelector((state) => state.error);
+  const [usingPodo, setUsingPodo] = useState(true);
 
   const onClickCreate = () => {
     if (!paymentState.card_name || paymentState.settlement_date == "") {
@@ -50,9 +51,11 @@ function ConfirmPayment(props) {
           createPartyState: Object.assign({}, createPartyState, {
             // 파티장 + 파티인원
             members_num: createPartyState.members_num + 1,
+            usingPodo: { usingPodo: usingPodo ? 1 : 0 },
           }),
         })
       );
+
       if (errorState) {
         if (errorState.status === 412) {
           Swal.fire(
@@ -74,8 +77,8 @@ function ConfirmPayment(props) {
       }
     }
   };
-  useEffect(async () => {
-    await dispatch(getUsersPaymentInfo());
+  useEffect(() => {
+    dispatch(getUsersPaymentInfo());
     dispatch(getUser());
   }, []);
   return (
@@ -123,8 +126,16 @@ function ConfirmPayment(props) {
             {settlementModalState ? <SetSettlementModal /> : null}
           </div>
           <div className="infoperiod">
-            - 결제 카드는 파티장의 귀책 사유 발생 시 위약금을 부과하기 위해
-            필요해요. 파티가 잘 진행된다면 위약금이 발생할 일은 절대 없으니
+            <input
+              type="checkbox"
+              name="xxx"
+              checked={usingPodo}
+              onChange={(e) => setUsingPodo(e.target.checked)}
+            />
+            {" Podo머니로 우선 결제하기"}
+            <br />
+            <br />- 결제 카드는 파티장의 귀책 사유 발생 시 위약금을 부과하기
+            위해 필요해요. 파티가 잘 진행된다면 위약금이 발생할 일은 절대 없으니
             안심하세요.🙂
           </div>
         </div>

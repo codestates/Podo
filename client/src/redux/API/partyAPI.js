@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getAllOtt } from "../API/ottAPI";
+import { updateUsingPodo } from "./paymentAPI";
 import { isError, isNotError } from "../reducers/errorSlice";
 import { isLoading, isNotLoading } from "../reducers/loadingSlice";
 import axios from "axios";
@@ -12,7 +13,11 @@ const api = axios.create({
 export const createParty = createAsyncThunk(
   "party/createParty",
   async ({ createPartyState }, { dispatch, rejectWithValue }) => {
-    await Promise.all([dispatch(dispatch(isLoading()), isNotError())]);
+    await Promise.all([
+      dispatch(isLoading()),
+      dispatch(isNotError()),
+      dispatch(updateUsingPodo(createPartyState.usingPodo)),
+    ]);
     try {
       console.log(createPartyState);
       await api.post(`/`, createPartyState);
@@ -88,8 +93,11 @@ export const getFilterParties = (parties, period, members_num) => {
 
 export const joinParty = createAsyncThunk(
   "party/joinParty",
-  async ({ partyId }, { dispatch, rejectWithValue }) => {
-    dispatch(isNotError());
+  async ({ partyId, usingPodo }, { dispatch, rejectWithValue }) => {
+    await Promise.all([
+      dispatch(isNotError()),
+      dispatch(updateUsingPodo({ usingPodo: usingPodo })),
+    ]);
     try {
       const parties = await api.patch(`/join`, { party_id: partyId });
       await Promise.all([dispatch(isNotError())]);

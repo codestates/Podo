@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { nanoid } from "nanoid";
-import { getUser, deleteUser } from "../API/userAPI";
+import { getUser, deleteUser, updateMoney } from "../API/userAPI";
 
 const initialState = null;
 
@@ -37,6 +37,7 @@ const userSlice = createSlice({
       state = null;
       return state;
     });
+    builder.addCase(updateMoney.fulfilled, () => {});
   },
 });
 

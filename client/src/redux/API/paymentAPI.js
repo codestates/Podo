@@ -73,3 +73,17 @@ export const updateAccount = createAsyncThunk(
     }
   }
 );
+
+export const updateUsingPodo = createAsyncThunk(
+  "payment/updateUsingPodo",
+  async ({ usingPodo }, { dispatch, rejectWithValue }) => {
+    try {
+      await api.post(`/using-podo/${usingPodo}`);
+      await Promise.all([dispatch(isNotError())]);
+    } catch (err) {
+      await Promise.all([dispatch(isError(err.toJSON()))]);
+
+      return rejectWithValue(err);
+    }
+  }
+);
