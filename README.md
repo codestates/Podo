@@ -45,12 +45,12 @@ OTT 가격이 부담스럽다면 **Podo**와 함께 해보세요!
 
 Teletubbies(텔레토비)는 알록달록한 아이디어가 가득한 사람들이 모여 만들어진 팀입니다.
 
-| 역할 | 이름   | 포지션    | Github                                          |
-| ---- | ------ | --------- | ----------------------------------------------- |
-| 팀장 | 김보라 | FRONT-END | [LauraBoraKim](https://github.com/LauraBoraKim) |
-| 팀원 | 김태우 | FRONT-END | [phosa9203](https://github.com/phosa9203)       |
-| 팀원 | 이원구 | BACK-END  | [westtrain](https://github.com/westtrain)       |
-| 팀원 | 하승윤 | BACK-END  | [cherishxyun](https://github.com/cherishxyun)   |
+| 역할 | 이름   | 포지션    | Github                                          | Blog                    |
+| ---- | ------ | --------- | -------------------------------------------- | ---------------------- |
+| 팀장 | 김보라 | FRONT-END | [LauraBoraKim](https://github.com/LauraBoraKim) | [코딩거북이의 개발 노트](https://bit.ly/3pttbgH) |
+| 팀원 | 김태우 | FRONT-END | [phosa9203](https://github.com/phosa9203)       | [Uricode](https://uricode.tistory.com/) |
+| 팀원 | 이원구 | BACK-END  | [westtrain](https://github.com/westtrain)       | [Westtrain](https://github.com/westtrain/TIL) |
+| 팀원 | 하승윤 | BACK-END  | [cherishxyun](https://github.com/cherishxyun)   | [Deviloper](https://high-developer.tistory.com) |
 
 <br>
 <br>
