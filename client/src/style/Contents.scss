@@ -1,0 +1,36 @@
+@import "./App.scss";
+
+body {
+  height: 100%;
+}
+.contentspage {
+  display: block;
+  // max-width: 100vw;
+  padding-top: 96px;
+  min-height: 100%;
+
+  .main {
+    width: 100vw;
+    height: 49.5em;
+    padding: 35px 0 47px 0;
+    background: linear-gradient(
+      180deg,
+      rgba(190, 193, 255, 0.64) 0%,
+      rgba(238, 239, 255, 0.64) 100%
+    );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: wrap;
+    div {
+      margin-left: 10px;
+      font-size: 57px;
+      font-weight: bold;
+      color: #4040cc;
+    }
+    img {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
