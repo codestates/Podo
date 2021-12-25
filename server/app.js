@@ -5,8 +5,6 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const { sequelize } = require("./models");
 const config = require("./config/config");
-//require("express-async-errors");
-const mysql = require("mysql2");
 
 const models = require("./models");
 const authRouter = require("./router/auth");
