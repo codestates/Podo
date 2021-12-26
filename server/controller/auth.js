@@ -1,7 +1,6 @@
 const { User } = require("../models");
-const dotenv = require("dotenv");
 const axios = require("axios");
-dotenv.config();
+require("dotenv").config();
 
 const { generateAccessToken, sendAccessToken } = require("./tokenFunction");
 const { generateName, nameArray, validate } = require("./nameFunction/index");
