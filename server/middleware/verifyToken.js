@@ -3,8 +3,6 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 const isAuth = (req, res, next) => {
-  // console.log('Passed isAuth ', req);
-  console.log(req.cookies);
   const token = req.cookies.jwt;
 
   if (!token) {

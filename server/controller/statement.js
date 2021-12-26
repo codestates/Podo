@@ -7,12 +7,9 @@ module.exports = {
     try {
       console.log(userId);
       const statementInfo = await Statement.findAll({
-        where: {
-          user_id: userId,
-        },
+        where: { user_id: userId },
         raw: true,
       });
-      console.log(statementInfo);
       if (statementInfo) {
         return res.status(200).json({ data: statementInfo });
       }

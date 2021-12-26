@@ -12,8 +12,9 @@ const cancelParty = async () => {
   // 멤버 수가 1명만 있는 파티 필터링
   unfulfilledParty = await Promise.all(
     unfulfilledParty.map((party) => {
-      if (party.members.length <= 1) {
-        return party;
+      const joinedMembersNum = party.members.split(",");
+      if (joinedMembersNum.length <= 1) {
+        return party.id;
       }
     })
   );
@@ -21,7 +22,7 @@ const cancelParty = async () => {
   //해당 파티 삭제
   unfulfilledParty = await Promise.all(
     unfulfilledParty.map((party) => {
-      party.destroy();
+      Party.destroy({ where: { id: party } });
     })
   );
 };

@@ -27,17 +27,17 @@ const settlePodoMoney = async () => {
       return allPartyId;
     })
   );
+
   // 파티 아이디만 담기
   settledParty = settledParty.flat().map((party) => {
     return party.party_id;
   });
+
   // 중복 제거
   settledParty = settledParty.filter((element, index) => {
     return settledParty.indexOf(element) === index;
   });
-  console.log("settledParty========", settledParty);
 
-  // 2. Capital 업데이트
   for (let i = 0; i < settledParty.length; i++) {
     const id = settledParty[i];
     await Party.findOne({ where: { id } }).then(async (party) => {
@@ -52,6 +52,7 @@ const settlePodoMoney = async () => {
       let collect = (price * (joinedMemberNum - 1)) / joinedMemberNum; // 적립될 포도머니 금액
       collect = Math.ceil(collect / 10) * 10;
 
+      // Capital 업데이트
       const capitalNum = await Capital.count();
       const capitalInfo = await Capital.findOne({ where: { id: capitalNum } });
       const total_amount = (await capitalInfo.total_amount) - collect;
